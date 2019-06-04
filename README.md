@@ -1,1 +1,6 @@
 # SynologyColudFlareDDNS
+##Purpose
+
+##prerequisites
+
+##Installation
