@@ -24,16 +24,6 @@ if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
     exit();
 }
 
-$hostname = explode('.', $hostname);
-$arrayCount = count($hostname);
-if ($arrayCount > 2) {
-    $subDomain = implode('.', array_slice($hostname, 0, $arrayCount-2));
-    $domain = implode('.', array_slice($hostname, $arrayCount-2, 2));
-} else {
-    $subDomain = '@';
-    $domain = implode('.', $hostname);
-}
-
 /* 
 1. Check Validity && Query Zone ID
 */
@@ -64,7 +54,8 @@ $domain_total = $json['result_info']['total_count'];
 
 $zoneID = -1;
 for ($i = 0; $i < $domain_total; $i++) {
-	if ($json['result'][$i]['name'] === $domain) {
+	$domain = (string)$json['result'][$i]['name'];
+	if (substr( $hostname, strlen( $hostname ) - strlen( $domain ) ) === $domain){
 		$zoneID = $json['result'][$i]['id'];
 		break;
 	}
