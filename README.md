@@ -17,13 +17,12 @@ Installation
 1. Connect via SSH. (can be activated in DSM)
 2. Execute 
 ```
-curl https://raw.githubusercontent.com/namukcom/SynologyCloudflareDDNS/master/cloudflare.php -o /usr/syno/bin/ddns/cloudflare.php && sudo chmod 755 /usr/syno/bin/ddns/cloudflare.php
+sudo curl https://raw.githubusercontent.com/namukcom/SynologyCloudflareDDNS/master/cloudflare.php -o /usr/syno/bin/ddns/cloudflare.php && sudo chmod 755 /usr/syno/bin/ddns/cloudflare.php
 ```
 
 *Deprecated, use curl, instead of wget* ~~wget https://raw.githubusercontent.com/namukcom/SynologyCloudflareDDNS/master/cloudflare.php -O /usr/syno/bin/ddns/cloudflare.php && sudo chmod 755 /usr/syno/bin/ddns/cloudflare.php~~
 
-
-3. Add some notes to end of DDNS config file(Location : __/etc.defaults/ddns_provider.conf__)
+3. Add some notes to end of DDNS config file. You can use your preferred text-editor. *(sudo vi /etc.defaults/ddns_provider.conf)*
 ```
 [Cloudflare]
   modulepath=/usr/syno/bin/ddns/cloudflare.php
@@ -50,11 +49,11 @@ SynologyCloudFlareDDNS (시놀로지에서 Cloudflare를 DDNS로 이용하기)
 1. SSH로 접속합니다. (DSM 설정에서 활성화 할 수 있습니다.)
 2. 다음의 명령을 실행합니다.
 ```
-curl https://raw.githubusercontent.com/namukcom/SynologyCloudflareDDNS/master/cloudflare.php -o /usr/syno/bin/ddns/cloudflare.php && sudo chmod 755 /usr/syno/bin/ddns/cloudflare.php
+sudo curl https://raw.githubusercontent.com/namukcom/SynologyCloudflareDDNS/master/cloudflare.php -o /usr/syno/bin/ddns/cloudflare.php && sudo chmod 755 /usr/syno/bin/ddns/cloudflare.php
 ```
 *사용하지 않음, wget대신에 curl을 사용하세요.* ~~wget https://raw.githubusercontent.com/namukcom/SynologyCloudflareDDNS/master/cloudflare.php -O /usr/syno/bin/ddns/cloudflare.php && sudo chmod 755 /usr/syno/bin/ddns/cloudflare.php~~
 
-3. DDNS 설정 파일에 다음의 내용을 추가합니다. (파일위치 : __/etc.defaults/ddns_provider.conf__)
+3. DDNS 설정 파일에 다음의 내용을 추가합니다. 마음에 드는 편집기로 수정하시기 바랍니다. *(sudo vi /etc.defaults/ddns_provider.conf)*
 ```
 [Cloudflare]
   modulepath=/usr/syno/bin/ddns/cloudflare.php
