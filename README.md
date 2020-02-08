@@ -20,7 +20,7 @@ Installation
 curl https://raw.githubusercontent.com/namukcom/SynologyCloudflareDDNS/master/cloudflare.php -o /usr/syno/bin/ddns/cloudflare.php && sudo chmod 755 /usr/syno/bin/ddns/cloudflare.php
 ```
 
-*Deprecated* ~~wget https://raw.githubusercontent.com/namukcom/SynologyCloudflareDDNS/master/cloudflare.php -O /usr/syno/bin/ddns/cloudflare.php && sudo chmod 755 /usr/syno/bin/ddns/cloudflare.php~~
+*Deprecated, use curl, instead of wget* ~~wget https://raw.githubusercontent.com/namukcom/SynologyCloudflareDDNS/master/cloudflare.php -O /usr/syno/bin/ddns/cloudflare.php && sudo chmod 755 /usr/syno/bin/ddns/cloudflare.php~~
 
 
 3. Add some notes to end of DDNS config file(Location : __/etc.defaults/ddns_provider.conf__)
@@ -52,7 +52,7 @@ SynologyCloudFlareDDNS (시놀로지에서 Cloudflare를 DDNS로 이용하기)
 ```
 curl https://raw.githubusercontent.com/namukcom/SynologyCloudflareDDNS/master/cloudflare.php -o /usr/syno/bin/ddns/cloudflare.php && sudo chmod 755 /usr/syno/bin/ddns/cloudflare.php
 ```
-*사용하지 않음* ~~wget https://raw.githubusercontent.com/namukcom/SynologyCloudflareDDNS/master/cloudflare.php -O /usr/syno/bin/ddns/cloudflare.php && sudo chmod 755 /usr/syno/bin/ddns/cloudflare.php~~
+*사용하지 않음, wget대신에 curl을 사용하세요.* ~~wget https://raw.githubusercontent.com/namukcom/SynologyCloudflareDDNS/master/cloudflare.php -O /usr/syno/bin/ddns/cloudflare.php && sudo chmod 755 /usr/syno/bin/ddns/cloudflare.php~~
 
 3. DDNS 설정 파일에 다음의 내용을 추가합니다. (파일위치 : __/etc.defaults/ddns_provider.conf__)
 ```
