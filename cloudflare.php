@@ -108,8 +108,7 @@ $post = array(
     'type'=>'A',
     'name'=>$fullname,
     'content'=>$ip,
-    'ttl'=>1,
-    'proxied'=>false
+    'ttl'=>1
 );
 
 $req = curl_init();
