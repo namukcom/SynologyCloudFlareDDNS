@@ -99,6 +99,7 @@ if(1 != $json['result_info']['total_count'])
 }
 
 $recordID = $json['result'][0]['id'];
+$ttl = $json['result'][0]['ttl'];
 
 /*
 3. Update DNS
@@ -108,7 +109,7 @@ $post = array(
     'type'=>'A',
     'name'=>$fullname,
     'content'=>$ip,
-    'ttl'=>1
+    'ttl'=>$ttl
 );
 
 $req = curl_init();
