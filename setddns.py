@@ -10,7 +10,7 @@ config.read('/etc.defaults/ddns_provider.conf')
 
 try:
         config['Cloudflare']
-except configparser.NoSectionError:
+except KeyError:
         config['Cloudflare']= {}
 
 config['Cloudflare']['modulepath'] = '/usr/syno/bin/ddns/cloudflare.php'
