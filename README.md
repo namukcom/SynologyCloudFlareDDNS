@@ -9,7 +9,7 @@ Purpose & Pros
 
 Prerequisites
 ---------------
-* Have a active Zone in Cloudflare. (Your Own Doamin, too)
+* Have a active Zone in Cloudflare. (Your own domain, too)
 * Have a A Record.
 
 Installation - Simple way (requires DSM 7.0+ or Python3 installed)
