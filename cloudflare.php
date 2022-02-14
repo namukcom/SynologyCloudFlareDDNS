@@ -17,6 +17,14 @@ if (strpos($hostname, '.') === false) {
     echo "badparam";
     exit();
 }
+if(strlen($pwd) == 37) /* Global key 37byte*/
+{
+	$header = array("X-Auth-Email: ${account}", "X-Auth-Key: ${pwd}", "Content-Type: application/json");
+}
+else /* API Token 40byte*/
+{
+	$header = array("Authorization: Bearer ${pwd}", "Content-Type: application/json");
+}
 
 // only for IPv4 format
 if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
@@ -37,7 +45,7 @@ $options = array(
 	CURLOPT_HEADER => false,
 	CURLOPT_VERBOSE => false,
 	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_HTTPHEADER => array("X-Auth-Email: ${account}", "X-Auth-Key: ${pwd}", "Content-Type: application/json")
+	CURLOPT_HTTPHEADER => $header
 );
 
 curl_setopt_array($req, $options);
@@ -45,7 +53,7 @@ $res = curl_exec($req);
 curl_close($req);
 $json = json_decode($res, true);
 
-if (false != $json['result_info']['success']) {
+if ('false' != $json['success']) {
 	echo 'badauth';
 	exit();
 }
@@ -79,7 +87,7 @@ $options = array(
 	CURLOPT_HEADER=>false,
 	CURLOPT_VERBOSE=>false,
 	CURLOPT_RETURNTRANSFER=>true,
-	CURLOPT_HTTPHEADER=>array("X-Auth-Email: ${account}", "X-Auth-Key: ${pwd}", "Content-Type: application/json")
+	CURLOPT_HTTPHEADER=> $header
 );
 
 curl_setopt_array($req, $options);
@@ -87,7 +95,7 @@ $res = curl_exec($req);
 curl_close($req);
 $json = json_decode($res, true);
 
-if (false != $json['result_info']['success']) {
+if ('false' != $json['success']) {
 	echo 'badauth';
 	exit();
 }
@@ -124,7 +132,7 @@ $options = array(
 	CURLOPT_HEADER => false,
 	CURLOPT_VERBOSE => false,
 	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_HTTPHEADER => array("X-Auth-Email: ${account}", "X-Auth-Key: ${pwd}", "Content-Type: application/json"),
+	CURLOPT_HTTPHEADER => $header,
 	CURLOPT_POST => false,
 	CURLOPT_POSTFIELDS => json_encode($post)
 );
@@ -134,7 +142,7 @@ $res = curl_exec($req);
 curl_close($req);
 $json = json_decode($res, true);
 
-if (false != $json['result_info']['success']) {
+if ('false' != $json['success']) {
 	echo 'Update Record failed';
 	exit();
 }
