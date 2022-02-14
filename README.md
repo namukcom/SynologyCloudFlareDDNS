@@ -7,6 +7,10 @@ Purpose & Pros
 * A Minimum Settings required.
 * Uses Cloudflare API v4.
 
+Changelog
+---------------
+2022.02.14. Supports both "API Tokens" and "Global API Key"
+
 Prerequisites
 ---------------
 * Have a active Zone in Cloudflare. (Your own domain, too)
@@ -39,6 +43,25 @@ Enabled: Checked
 5. Click Run
 
 6. You can see Cloudflare DDNS has been added to your DDNS list.
+
+7. Setup DDNS in Synology DSM (You can use "API Tokens" or "Global API Key")
+> 1. Using API Tokens (Recommended)
+>    > Single Domain and single permission can granted with a Token -> more secure
+>    > How to create: Cloudflare - My Profile - API Tokens - Create Token (Use "Edit zone DNS" template, required permission: Zone - DNS - Edit)
+>    > Synology DDNS Settings
+>    > ```
+>    > Username: Anything you want(not using when authorize the token)
+>    > Password: API Token (40 byte)
+>    > ```
+>
+> 2. Using Global API Key
+>    > All permission with a single API Key - less secure
+>    > How to view: Cloudflare - My Profile - API Tokens - Global API Key - Click "View"
+>    > Synology DDNS Settings
+>    > ```
+>    > Username: Cloudflare Username
+>    > Password: Global API Key (37 byte)
+>    > ```
 
 Installation - Another way (DSM 7.0- or  Python3 NOT installed)
 ----------------
@@ -99,6 +122,17 @@ SynologyCloudFlareDDNS (시놀로지에서 Cloudflare를 DDNS로 이용하기)
 5. **실행**을 클릭합니다.
 
 6. DDNS 목록에 **Cloudflare**가 추가된 것을 확인할 수 있습니다.
+
+7. 시놀로지 DSM에서 DDNS 설정을 합니다. (2가지 방식 중 하나 선택)
+> 1. API Tokens 사용하기 (권장)
+>    > 한개의 토큰으로 특정 도메인 및 권한만 부여하여 사용할 수 있어 유출시에도 다른 도메인이나 권한이 없는 영역에 접근 불가 -> 보안상 이점 가짐
+>    > 생성방법: Cloudflare - My Profile - API Tokens - Create Token ("Edit zone DNS" 템플릿 사용, 필요한 권한: Zone - DNS - Edit)
+>    > Synology 설정에서 패스워드/키 칸에 생성된 API Token (40 바이트)을 입력하면 됩니다.(사용자 이름/이메일은 아무값이나 입력)
+>
+> 2. Global API Key 사용하기
+>    > 한개의 키로 모든 권한을 가짐 - 보안상 취약
+>    > 확인방법: Cloudflare - My Profile - API Tokens - Global API Key - View 클릭
+>    > Synology 설정에서 패스워드/키 칸에 확인된 Global API Key (37 바이트)를 입력하면 됩니다.(사용자 이름/이메일은 Cloudflare 계정 입력)
 
 
 설치방법 - 다른 방법(DSM 7.0 이하이거나 Python3가 설치되지 않은 경우)
