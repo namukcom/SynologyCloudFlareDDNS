@@ -51,7 +51,7 @@ if (empty($data = exec_curl($options))) {
 
 $zone_id = -1;
 $result = array_filter(array_get($data, 'result', []), function($row) use ($hostname) {
-    return preg_match('/\.'.$row['name'].'$/i', $hostname) > 0 || strtolower($row['name']) === $hostname;
+    return preg_match('/\.'.$row['name'].'$/i', $hostname) > 0 || strtolower($row['name']) === strtolower($hostname);
 });
 
 if (empty($zone_info = array_pop($result))) {
